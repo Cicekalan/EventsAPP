@@ -1,0 +1,43 @@
+.events-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 90%;
+    max-width: 50rem;
+    margin: 0 auto 2rem auto;
+    text-align: center;
+}
+
+
+.add-event-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; 
+    margin-bottom: 1rem; 
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; 
+}
+
+app-eventlist {
+    flex: 1;
+    min-width: 25%;
+}
+
+app-eventdetail {
+    flex: 1;
+    min-width: 70%;
+}
+.button-add {
+    background-color: #9FB6CD;
+    color: #006B54;
+    font-size: 1.2rem; 
+    padding: 0.75rem 1.5rem; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    border: none; 
+}

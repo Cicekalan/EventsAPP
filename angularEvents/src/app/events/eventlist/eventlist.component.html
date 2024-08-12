@@ -1,0 +1,21 @@
+<div class="eventList-container">
+  <p>Event List</p>
+  <div *ngIf="events.length > 0">
+    <ul>
+      <li *ngFor="let event of events">
+        <button
+          [class.active]="selectedEventId === event.id"
+          (click)="selectEvent(event.id)"
+        >
+          <span>{{ event.name }}</span>
+          <mat-icon class="icon-right" *ngIf="hasUserJoined(event.id)"
+            >check_circle</mat-icon
+          >
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="listnull">
+    <p>No events available or user not authenticated.</p>
+  </div>
+</div>

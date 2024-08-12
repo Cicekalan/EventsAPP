@@ -1,0 +1,22 @@
+<app-user (loginChange)="onLoginChange($event)"></app-user>
+  
+<app-events *ngIf="isLogin"></app-events>
+
+<div *ngIf="!isLogin ">
+</div>
+<!--
+<ng-container *ngIf="!isLoading; else loading">
+    <app-user (loginChange)="onLoginChange($event)"></app-user>
+  
+    <app-events *ngIf="isLogin"></app-events>
+  
+    <div *ngIf="!isLogin ">
+    </div>
+  </ng-container>
+  
+  <ng-template #loading>
+    <div class="loading-container">
+      <p>Loading...</p>
+    </div>
+  </ng-template>
+-->  

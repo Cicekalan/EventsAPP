@@ -1,0 +1,12 @@
+Django==4.1.8
+djangorestframework==3.14.0
+gunicorn==21.2.0
+django-cors-headers==4.1.0
+requests==2.31.0
+pytz==2023.3
+psycopg2-binary==2.9.6  # PostgreSQL adapter for Python
+# Remove djongo and mongoengine
+# pymongo==3.12.3  # Remove if not needed
+# django-environ==0.9.0  # Uncomment if needed
+# python-decouple==3.7  # Uncomment if needed
+djangorestframework-simplejwt==5.1.0  # Uncomment if needed

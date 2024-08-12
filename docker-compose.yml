@@ -1,0 +1,110 @@
+version: '1.0'
+services:
+  # .NET Backend Postgres Database
+  postgresaspnetapi:
+    image: postgres:latest
+    container_name: postgresaspnetapi
+    environment:
+      POSTGRES_USER: exampleuser
+      POSTGRES_PASSWORD: examplepassword
+      POSTGRES_DB: exampledb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-asp-net-api-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U exampleuser -d exampledb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - net_backend
+
+  # Django Backend Postgres Database
+  postgresdjangoapi:
+    image: postgres:latest
+    container_name: postgresdjangoapi
+    environment:
+      POSTGRES_USER: seconduser
+      POSTGRES_PASSWORD: secondpassword
+      POSTGRES_DB: seconddb
+    ports:
+      - "5433:5432"  
+    volumes:
+      - postgres-django-api-data:/var/lib/postgresql/data
+    networks:
+      - net_django
+
+  # .NET Backend Service
+  userapi: 
+    build:
+      context: ./UserApi
+      dockerfile: Dockerfile
+    container_name: userapi
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Host=postgresaspnetapi;Port=5432;Database=exampledb;Username=exampleuser;Password=examplepassword;"
+    ports:
+      - "5024:5024"
+    depends_on:
+      postgresaspnetapi:
+        condition: service_healthy
+    entrypoint: >
+      sh -c "
+      dotnet UserApi.dll"  
+    volumes:
+      - ./uploads:/app/uploads
+    networks:
+      - net_backend
+
+  # Django Backend Service
+  eventapi: 
+    build:
+      context: ./events_project
+      dockerfile: Dockerfile
+    container_name: eventapi
+    environment:
+      - DJANGO_SETTINGS_MODULE=events_project.settings
+      - POSTGRES_USER=seconduser
+      - POSTGRES_PASSWORD=secondpassword
+      - POSTGRES_DB=seconddb
+      - POSTGRES_HOST=second-postgres  
+      - POSTGRES_PORT=5432
+    working_dir: /app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgresdjangoapi
+    volumes:
+      - ./events_project:/app  
+    command: >
+      sh -c "
+      python manage.py makemigrations &&
+      python manage.py migrate &&
+      python manage.py loaddata events.json &&
+      python manage.py runserver 0.0.0.0:8000"
+    networks:
+      - net_django
+
+  # Angular Frontend Service
+  angularapp:
+    build:
+      context: ./angularEvents
+      dockerfile: Dockerfile
+    container_name: angularapp
+    ports:
+      - "4200:80" 
+    networks:
+      - net_frontend
+
+volumes:
+  postgres-asp-net-api-data:
+  postgres-django-api-data:
+
+networks:
+  net_backend:
+    driver: bridge
+  net_django:
+    driver: bridge
+  net_frontend:
+    driver: bridge

@@ -1,0 +1,32 @@
+<div class="login-container">
+  <button *ngIf="!isLogin" mat-button (click)="toggleMode()">
+    {{ isLoginMode ? 'Switch to Register' : 'Switch to Login' }}
+  </button>
+
+  <app-login
+    *ngIf="isLoginMode && !isLogin"
+    (isLogin)="onLoginChange($event, profilePictureUrl)"
+    (profilePictureUrlChange)="onProfilePictureUrlChange($event)"
+    [userName]=""
+    [password]=""
+  ></app-login>
+
+  <app-register
+    *ngIf="!isLoginMode && !isLogin"
+    [userName]=""
+    [password]=""
+    [FullName]=""
+    [email]=""
+  ></app-register>
+
+  <div *ngIf="isLogin" class="logout-container">
+    <button mat-icon-button color="warn" class="logout-button" (click)="onLogout()">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
+
+  <div *ngIf="isLogin" class="profile-info">
+    <p>Welcome, {{ fullName }}</p> 
+    <img *ngIf="profilePictureUrl" [src]="profilePictureUrl" alt="Profile Picture" class="profile-picture" />
+  </div>
+</div>

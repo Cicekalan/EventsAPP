@@ -1,0 +1,74 @@
+[
+    {
+        "model": "events.event",
+        "fields": {
+            "name": "Blockchain Summit",
+            "description": "Exploring the impact of blockchain technology on finance, supply chains, and governance.",
+            "date": "2024-09-25T09:30:00Z",
+            "location": "Austin, TX"
+        }
+    },
+    {
+        "model": "events.event",
+        "fields": {
+            "name": "Clean Energy Conference",
+            "description": "A discussion on the latest innovations in renewable energy and sustainability.",
+            "date": "2024-10-12T10:00:00Z",
+            "location": "Seattle, WA"
+        }
+    },
+    {
+        "model": "events.event",
+        "fields": {
+            "name": "Cybersecurity Forum",
+            "description": "Industry experts share insights on the evolving landscape of cybersecurity threats and solutions.",
+            "date": "2024-11-20T09:00:00Z",
+            "location": "Washington, D.C."
+        }
+    },
+    {
+        "model": "events.event",
+        "fields": {
+            "name": "AgriTech Conference",
+            "description": "Innovations in agricultural technology for improving crop yields and sustainability.",
+            "date": "2024-12-05T13:00:00Z",
+            "location": "Des Moines, IA"
+        }
+    },
+    {
+        "model": "events.event",
+        "fields": {
+            "name": "Smart Cities Expo",
+            "description": "Discover how smart technologies are transforming urban living for a sustainable future.",
+            "date": "2024-12-20T09:00:00Z",
+            "location": "Las Vegas, NV"
+        }
+    },
+    {
+        "model": "events.event",
+        "fields": {
+            "name": "EdTech Innovations Summit",
+            "description": "Exploring the future of education with emerging technologies like AI and VR.",
+            "date": "2025-01-15T09:00:00Z",
+            "location": "Orlando, FL"
+        }
+    },
+    {
+        "model": "events.event",
+        "fields": {
+            "name": "Space Exploration Conference",
+            "description": "A deep dive into the latest missions and technologies driving space exploration.",
+            "date": "2025-01-28T11:00:00Z",
+            "location": "Houston, TX"
+        }
+    },
+    {
+        "model": "events.event",
+        "fields": {
+            "name": "Climate Change Action Forum",
+            "description": "Global leaders discuss policies and technologies to combat climate change.",
+            "date": "2025-02-10T08:30:00Z",
+            "location": "Copenhagen, Denmark"
+        }
+    }
+]

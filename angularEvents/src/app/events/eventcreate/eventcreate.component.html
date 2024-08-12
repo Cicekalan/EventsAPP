@@ -1,0 +1,30 @@
+<div class="backdrop" (click)="handleCancel()"></div>
+<dialog open>
+  <h2>Add Event</h2>
+  <form (ngSubmit)="onSubmit()">
+    <p>
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" [(ngModel)]="enteredTitle" />
+    </p>
+
+    <p>
+      <label for="description">Summary</label>
+      <textarea id="description" rows="5" name="description" [(ngModel)]="enteredDescription"></textarea>
+    </p>
+
+    <p>
+      <label for="enteredDate">Date</label>
+      <input type="date" id="enteredDate" name="enteredDate" [(ngModel)]="enteredDate" />
+    </p>
+    
+    <p>
+      <label for="enteredLocation">Location</label>
+      <input type="text" id="enteredLocation" name="enteredLocation" [(ngModel)]="enteredLocation" />
+    </p>
+
+    <p class="actions">
+      <button type="button" (click)="handleCancel()">Cancel</button>
+      <button type="submit" >Create</button>
+    </p>
+  </form>
+</dialog>

@@ -1,0 +1,17 @@
+<div class="events-container">
+  <h2>Events</h2>
+  <div class="add-event-container">
+    <button class="button-add" (click)="toggleEventCreateForm()">
+      Add Event
+    </button>
+  </div>
+  <div class="wrapper">
+    <app-eventcreate
+      *ngIf="showEventCreateForm"
+      (onCancel)="toggleEventCreateForm()"
+      (eventCreated)="onEventCreated()"
+    ></app-eventcreate>
+    <app-eventlist (eventSelected)="selectedEventId = $event" />
+    <app-eventdetail [selectedEventId]="selectedEventId" />
+  </div>
+</div>
