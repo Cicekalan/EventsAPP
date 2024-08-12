@@ -44,8 +44,8 @@ The project runs using Docker containers, with Angular, .NET Core, Django, and P
 
 1. Access the Angular frontend at http://localhost:4200.
 2. Interact with the APIs:
-     ASP.NET Core API: http://localhost:5024/index.html
-     Django REST Framework API: http://localhost:8000/api/events
+     - ASP.NET Core API: http://localhost:5024/index.html
+     - Django REST Framework API: http://localhost:8000/api/events
 
 ## Example Screenshots
 
