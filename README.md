@@ -53,6 +53,10 @@ The project runs using Docker containers, with Angular, .NET Core, Django, and P
 - Main Page: ![Main Page](screenshots/mainpage.png)
 - Register Component: ![Register Page](screenshots/register.png)
 - Event Create Component: ![Event Create Page](screenshots/eventcreate.png)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
   
 
 
