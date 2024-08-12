@@ -50,9 +50,9 @@ The project runs using Docker containers, with Angular, .NET Core, Django, and P
 ## Example Screenshots
 
 - Login Component: ![login Page](screenshots/login.png)
-- Main Page: ![Main Page](screenshots/main page.png)
+- Main Page: ![Main Page](screenshots/mainpage.png)
 - Register Component: ![Register Page](screenshots/register.png)
-- Event Create Component: ![Event Create Page](screenshots/event create.png)
+- Event Create Component: ![Event Create Page](screenshots/eventcreate.png)
   
 
 
