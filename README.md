@@ -30,7 +30,7 @@ The project runs using Docker containers, with Angular, .NET Core, Django, and P
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/Aaed517/EventsAPP.git
+   git clone https://github.com/cicekalan/EventsAPP.git
    cd EventsAPP-main
 
 2. **Start Services with Docker:**
